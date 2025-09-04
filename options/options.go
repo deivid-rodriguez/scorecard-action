@@ -75,6 +75,7 @@ type Options struct {
 	PrivateRepoStr string `env:"SCORECARD_PRIVATE_REPOSITORY"`
 
 	// Input parameters
+	InputChecksToRun   string `env:"INPUT_CHECKS_TO_RUN"`
 	InputResultsFile   string `env:"INPUT_RESULTS_FILE"`
 	InputResultsFormat string `env:"INPUT_RESULTS_FORMAT"`
 	InputFileMode      string `env:"INPUT_FILE_MODE"`
@@ -197,8 +198,13 @@ func (o *Options) setScorecardOpts() {
 	o.ScorecardOpts.Commit = scopts.DefaultCommit
 
 	// --out-file=
-	if o.ScorecardOpts.ResultsFile == "" {
+	if o.InputResultsFile != "" {
 		o.ScorecardOpts.ResultsFile = o.InputResultsFile
+	}
+
+	// --checks=
+	if o.InputChecksToRun != "" {
+		o.ScorecardOpts.ChecksToRun = strings.Split(o.InputChecksToRun, ",")
 	}
 }
 

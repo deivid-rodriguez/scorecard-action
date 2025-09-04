@@ -40,6 +40,7 @@ const (
 	//              they have replacements in upstream scorecard.
 	EnvInputRepoToken              = "INPUT_REPO_TOKEN"             //nolint:gosec
 	EnvInputInternalRepoToken      = "INPUT_INTERNAL_DEFAULT_TOKEN" //nolint:gosec
+	EnvInputChecksToRun            = "INPUT_CHECKS_TO_RUN"
 	EnvInputResultsFile            = "INPUT_RESULTS_FILE"
 	EnvInputResultsFormat          = "INPUT_RESULTS_FORMAT"
 	EnvInputPublishResults         = "INPUT_PUBLISH_RESULTS"
